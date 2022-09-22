@@ -1,20 +1,20 @@
 package com.example.cardapplication
 
-class Cards {
+class Card(
 
-    val name : String=""
-    val points: Int=0
-    val image : Int=0
-
+    val name : String,
+    val value: Int,
+    val image : Int
+)
 //Kan jag lägga till en varibel med bilder.
 
 
-    val cardlist = mutableListOf<Cards>()
-    val c1 = Cards()
 
 
 
-}
+
+
+
 
 
 
