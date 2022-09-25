@@ -1,5 +1,6 @@
 package com.example.cardapplication
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlin.random.Random
@@ -10,10 +11,12 @@ class MainActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
     lateinit var button: Button
     val cards = mutableListOf<Card>()
-
+    val resultViewButton = findViewById<Button>(R.id.resultViweButton)
+    val closeButton = findViewById<Button>(R.id.closeButton)
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContentView(R.layout.activity_main)
         imageView = findViewById(R.id.imageView);
         button = findViewById(R.id.button);
@@ -25,18 +28,26 @@ class MainActivity : AppCompatActivity() {
 
         }
 
+        resultViewButton.setOnClickListener {
+            val resultButtonIntent =
+                Intent(/* packageContext = */ this, /* cls = */ ResultActivity::class.java)
+            startActivity(resultButtonIntent)
+        }
+
+        closeButton.setOnClickListener {
+            val closeIntentButton =
+                Intent(/* packageContext = */ this, /* cls = */ StartActivity::class.java)
+            startActivity(closeIntentButton)
+
+        }
+        createCards()
     }
-
-    fun blanbdaKort() {
-
-        cards.shuffle()
-
-
-    }
+    //fun blanbdaKort() { cards.shuffle() }
 
     fun createCards() {
 
-//Jag lade den i en array, skulle man kanske lägga den i en collection??? Hur kan jag initlasirz image i varje variabeln
+        //Jag lade den i en array, skulle man kanske lägga den i en collection???
+        // Hur kan jag initlasirz image i varje variabeln
 
         cards.add(Card("clubs two", 2, R.drawable.clubstwo))
         cards.add(Card("clubs three", 3, R.drawable.clubsthree))
@@ -99,23 +110,22 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    fun playerHigherOrLower(card: Card) {
+    /*fun playerHigherOrLower(card: Card) {
 
-        //Här ska jag använda val av spelaren högre eller lägre..
-        // Men hur ska man logisk skriva ner det.
+//Här ska jag använda val av spelaren högre eller lägre..
+// Men hur ska man logisk skriva ner det.
 
-        // val chooseHigher =
-        setContentView(R.layout.activity_main)
-        imageView = findViewById(R.id.imageView);
-        button = findViewById(R.id.button);
+// val chooseHigher =
+setContentView(R.layout.activity_main)
+imageView = findViewById(R.id.imageView);
+button = findViewById(R.id.button);
 
-        button.setOnClickListener {
-            val random = Random
-            val randomCard = cards[random.nextInt(cards.size)]
-            imageView.setImageResource(randomCard.image)
-            //if (randomCard < player chooise
+button.setOnClickListener {
+    val random = Random
+    val randomCard = cards[random.nextInt(cards.size)]
+    imageView.setImageResource(randomCard.image)
+    //if (randomCard < player chooise
 
-        }
-
-    }
+}*/
 }
+
