@@ -3,6 +3,7 @@ package com.example.cardapplication
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import kotlin.random.Random
 import android.widget.Button
 import android.widget.ImageButton
@@ -51,7 +52,7 @@ class MainActivity : AppCompatActivity() {
 
         }
         createCards()
-        lowerORhigher()
+        //lowerORhigher()
     }
 
 
@@ -126,13 +127,13 @@ class MainActivity : AppCompatActivity() {
 
 
     fun lowerORhigher() {
-
+         
 
         higherButton.setOnClickListener {
             val randomCard = cards[Random.nextInt(cards.size)]
 
             if (currentCard?.value!! < randomCard.value) {
-
+                Log.d("!!!", "Funkar")
 
             }
         }
