@@ -56,7 +56,7 @@
         app:srcCompat="@android:drawable/stat_sys_download" />
 
     <Button
-        android:id="@+id/resultViweButton"
+        android:id="@+id/resultViewButton"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="38dp"
@@ -74,6 +74,6 @@
         android:text="EXIT"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toEndOf="@+id/resultViweButton"
+        app:layout_constraintStart_toEndOf="@+id/resultViewButton"
         app:layout_constraintTop_toBottomOf="@+id/imageButtonLower" />
 </androidx.constraintlayout.widget.ConstraintLayout>

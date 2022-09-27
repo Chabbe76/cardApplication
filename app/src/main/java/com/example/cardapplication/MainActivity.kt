@@ -5,14 +5,23 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import kotlin.random.Random
 import android.widget.Button
+import android.widget.ImageButton
 import android.widget.ImageView
 
 class MainActivity : AppCompatActivity() {
     lateinit var imageView: ImageView
     lateinit var button: Button
     val cards = mutableListOf<Card>()
-    val resultViewButton = findViewById<Button>(R.id.resultViweButton)
-    val closeButton = findViewById<Button>(R.id.closeButton)
+    lateinit var resultViewButton: Button
+    lateinit var closeButton: Button
+    lateinit var higherButton: Button
+    lateinit var lowerButton: Button
+    val currentCard: Card? = null
+
+
+
+
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -27,13 +36,14 @@ class MainActivity : AppCompatActivity() {
             imageView.setImageResource(randomCard.image)
 
         }
-
+        resultViewButton = findViewById<Button>(R.id.resultViewButton)
         resultViewButton.setOnClickListener {
+
             val resultButtonIntent =
                 Intent(/* packageContext = */ this, /* cls = */ ResultActivity::class.java)
             startActivity(resultButtonIntent)
         }
-
+        closeButton = findViewById<Button>(R.id.closeButton)
         closeButton.setOnClickListener {
             val closeIntentButton =
                 Intent(/* packageContext = */ this, /* cls = */ StartActivity::class.java)
@@ -41,7 +51,12 @@ class MainActivity : AppCompatActivity() {
 
         }
         createCards()
+        lowerORhigher()
     }
+
+
+
+
     //fun blanbdaKort() { cards.shuffle() }
 
     fun createCards() {
@@ -107,6 +122,27 @@ class MainActivity : AppCompatActivity() {
         cards.add(Card("diamond ace", 14, R.drawable.spadesace))
 
 
+    }
+
+
+    fun lowerORhigher() {
+
+
+        higherButton.setOnClickListener {
+            val randomCard = cards[Random.nextInt(cards.size)]
+
+            if (currentCard?.value!! < randomCard.value) {
+
+
+            }
+        }
+
+        lowerButton.setOnClickListener {
+               val randomCard = cards[Random.nextInt(cards.size)]
+            if (currentCard?.value!! > randomCard.value) {
+
+            }
+        }
     }
 
 
