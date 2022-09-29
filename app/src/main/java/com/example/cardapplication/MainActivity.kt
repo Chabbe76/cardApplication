@@ -17,8 +17,9 @@ class MainActivity : AppCompatActivity() {
     lateinit var closeButton: Button
     lateinit var higherButton: ImageView
     lateinit var lowerButton: ImageView
-    var newCard: Card? = null
-    var randomCard: Card? = null
+    lateinit var imageNewCard: ImageView
+    var newCard: Card = Card("clubs two", 2, R.drawable.clubstwo)
+    var randomCard: Card = Card("clubs two", 2, R.drawable.clubstwo)
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -132,16 +133,23 @@ class MainActivity : AppCompatActivity() {
     fun higher() {
 
         newCard = cards[(0 until cards.size).random()]
+        imageNewCard = findViewById(R.id.imageNewCard);
+        imageNewCard.setImageResource(newCard.image)
 
-        if (newCard?.value!! > randomCard!!.value) {
+        if (newCard.value > randomCard.value) {
             Log.d("!!!", "Det är större")
         } else (Log.d("!!!", "Du är mindre förlorat"))
+
     }
 
     fun lowerCard() {
 
         newCard = cards[(0 until cards.size).random()]
-        if (newCard?.value!! > randomCard!!.value) {
+        imageNewCard = findViewById(R.id.imageNewCard);
+        imageNewCard.setImageResource(newCard.image)
+        if (newCard.value < randomCard.value) {
+
+
             Log.d("!!!", "Det är mindre")
         } else {
             Log.d("!!!", "Det är mindre har förlorat")
