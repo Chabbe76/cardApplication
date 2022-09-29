@@ -15,13 +15,10 @@ class MainActivity : AppCompatActivity() {
     val cards = mutableListOf<Card>()
     lateinit var resultViewButton: Button
     lateinit var closeButton: Button
-    lateinit var higherButton: Button
-    lateinit var lowerButton: Button
-    val currentCard: Card? = null
-
-    //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
-
-
+    lateinit var higherButton: ImageView
+    lateinit var lowerButton: ImageView
+    var newCard: Card? = null
+    var randomCard: Card? = null
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -33,10 +30,18 @@ class MainActivity : AppCompatActivity() {
 
         button.setOnClickListener {
             val random = Random
-            val randomCard = cards[random.nextInt(cards.size)]
-            imageView.setImageResource(randomCard.image)
+            randomCard = cards[random.nextInt(cards.size)]
+            imageView.setImageResource(randomCard!!.image)
 
         }
+        higherButton = findViewById(R.id.imageButtonHigher)
+        higherButton.setOnClickListener { higher() }
+
+
+        lowerButton = findViewById(R.id.imageButtonLower)
+        lowerButton.setOnClickListener { lowerCard() }
+
+
         resultViewButton = findViewById<Button>(R.id.resultViewButton)
         resultViewButton.setOnClickListener {
 
@@ -44,6 +49,7 @@ class MainActivity : AppCompatActivity() {
                 Intent(/* packageContext = */ this, /* cls = */ ResultActivity::class.java)
             startActivity(resultButtonIntent)
         }
+
         closeButton = findViewById<Button>(R.id.closeButton)
         closeButton.setOnClickListener {
             val closeIntentButton =
@@ -52,13 +58,9 @@ class MainActivity : AppCompatActivity() {
 
         }
         createCards()
-        //lowerORhigher()
+
     }
 
-
-
-
-    //fun blanbdaKort() { cards.shuffle() }
 
     fun createCards() {
 
@@ -122,28 +124,29 @@ class MainActivity : AppCompatActivity() {
         cards.add(Card("diamond king", 13, R.drawable.spadesking))
         cards.add(Card("diamond ace", 14, R.drawable.spadesace))
 
+        //lowerORhigher()
 
     }
 
 
-    fun lowerORhigher() {
-         
+    fun higher() {
 
-        higherButton.setOnClickListener {
-            val randomCard = cards[Random.nextInt(cards.size)]
+        newCard = cards[(0 until cards.size).random()]
 
-            if (currentCard?.value!! < randomCard.value) {
-                Log.d("!!!", "Funkar")
+        if (newCard?.value!! > randomCard!!.value) {
+            Log.d("!!!", "Det är större")
+        } else (Log.d("!!!", "Du är mindre förlorat"))
+    }
 
-            }
+    fun lowerCard() {
+
+        newCard = cards[(0 until cards.size).random()]
+        if (newCard?.value!! > randomCard!!.value) {
+            Log.d("!!!", "Det är mindre")
+        } else {
+            Log.d("!!!", "Det är mindre har förlorat")
         }
 
-        lowerButton.setOnClickListener {
-               val randomCard = cards[Random.nextInt(cards.size)]
-            if (currentCard?.value!! > randomCard.value) {
-
-            }
-        }
     }
 
 
