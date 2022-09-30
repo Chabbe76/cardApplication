@@ -8,8 +8,10 @@ import kotlin.random.Random
 import android.widget.Button
 import android.widget.ImageButton
 import android.widget.ImageView
+import android.widget.TextView
 
 class MainActivity : AppCompatActivity() {
+    lateinit var pointTextView: TextView
     lateinit var imageView: ImageView
     lateinit var button: Button
     val cards = mutableListOf<Card>()
@@ -20,19 +22,21 @@ class MainActivity : AppCompatActivity() {
     lateinit var imageNewCard: ImageView
     var newCard: Card = Card("clubs two", 2, R.drawable.clubstwo)
     var randomCard: Card = Card("clubs two", 2, R.drawable.clubstwo)
-
+    var points = 0
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
         setContentView(R.layout.activity_main)
+
+        //var name = intent.getStringExtra("name")
+
         imageView = findViewById(R.id.imageView);
         button = findViewById(R.id.button);
 
         button.setOnClickListener {
             val random = Random
             randomCard = cards[random.nextInt(cards.size)]
-            imageView.setImageResource(randomCard!!.image)
+            imageView.setImageResource(randomCard.image)
 
         }
         higherButton = findViewById(R.id.imageButtonHigher)
@@ -132,12 +136,18 @@ class MainActivity : AppCompatActivity() {
 
     fun higher() {
 
+        pointTextView = findViewById(R.id.pointTextView)
         newCard = cards[(0 until cards.size).random()]
         imageNewCard = findViewById(R.id.imageNewCard);
         imageNewCard.setImageResource(newCard.image)
 
         if (newCard.value > randomCard.value) {
+            points++
+            pointTextView.text = "POINTS: $points"
+
             Log.d("!!!", "Det är större")
+
+
         } else (Log.d("!!!", "Du är mindre förlorat"))
 
     }
@@ -148,7 +158,8 @@ class MainActivity : AppCompatActivity() {
         imageNewCard = findViewById(R.id.imageNewCard);
         imageNewCard.setImageResource(newCard.image)
         if (newCard.value < randomCard.value) {
-
+            points++
+            pointTextView.text = "POINTS: $points"
 
             Log.d("!!!", "Det är mindre")
         } else {
