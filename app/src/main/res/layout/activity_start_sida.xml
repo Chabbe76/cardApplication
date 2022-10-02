@@ -4,58 +4,33 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".StartActivity">
+    android:background="@drawable/cardbackgrimage"
+    tools:context=".StartActivity"
+
+    >
 
     <TextView
         android:id="@+id/textView"
         android:layout_width="247dp"
         android:layout_height="49dp"
-        android:layout_marginTop="52dp"
+        android:layout_marginTop="72dp"
         android:text="Higher or Lower"
         android:textAllCaps="false"
         android:textColor="@color/purple_500"
         android:textColorHighlight="#D10D0D"
         android:textSize="34sp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="21dp"
-        android:text="Enter Your Name"
-        android:textColor="#90E813"
-        android:textColorHighlight="#B63737"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView" />
-
-    <EditText
-        android:id="@+id/editTextTextPersonName"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="8dp"
-        android:ems="10"
-        android:hint="Enter Your Name"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <ImageView
         android:id="@+id/imageView2"
         android:layout_width="209dp"
         android:layout_height="254dp"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="21dp"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/editTextTextPersonName"
+        app:layout_constraintTop_toBottomOf="@+id/textView"
         app:srcCompat="@drawable/heartsqueen" />
 
     <Button
@@ -63,9 +38,20 @@
         android:layout_width="125dp"
         android:layout_height="70dp"
         android:layout_marginTop="39dp"
-        android:text="Start Game"
+        android:text="Play Single"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView2" />
+
+    <Button
+        android:id="@+id/buttonDoublePlay"
+        android:layout_width="125dp"
+        android:layout_height="71dp"
+        android:layout_marginTop="11dp"
+        android:text="Play Double"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/buttonToStartGame" />
 </androidx.constraintlayout.widget.ConstraintLayout>

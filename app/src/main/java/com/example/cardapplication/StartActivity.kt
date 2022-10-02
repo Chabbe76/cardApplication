@@ -9,7 +9,8 @@ import android.widget.ImageView
 class StartActivity : AppCompatActivity() {
 
     lateinit var startGameButton:Button
-    //lateinit var imageViewStartButton: ImageView
+    lateinit var playDoublePlay: Button
+
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -20,9 +21,20 @@ class StartActivity : AppCompatActivity() {
         startGameButton = findViewById<Button>(R.id.buttonToStartGame);
         startGameButton.setOnClickListener {
             val startIntentButton = Intent(/* packageContext = */ this, /* cls = */ MainActivity::class.java)
-            //startIntentButton.putExtra("name", "Namn på input")//Skicka namn vidare
+
             startActivity(startIntentButton)
         }
+
+        playDoublePlay = findViewById<Button>(R.id.buttonDoublePlay);
+        playDoublePlay.setOnClickListener {
+            val doublePlayIntentButton = Intent(/* packageContext = */ this, /* cls = */ DoubleActivity::class.java)
+
+            startActivity(doublePlayIntentButton)
+        }
+
+
+
+
 
     }
 
