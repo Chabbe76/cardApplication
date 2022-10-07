@@ -31,8 +31,8 @@ class MainActivity : AppCompatActivity() {
         //var name = intent.getStringExtra("name")
 
         imageView = findViewById(R.id.imageView);
-        button = findViewById(R.id.button);
 
+        button = findViewById(R.id.button);
         button.setOnClickListener {
             val random = Random
             randomCard = cards[random.nextInt(cards.size)]
@@ -146,7 +146,6 @@ class MainActivity : AppCompatActivity() {
             pointTextView.text = "POINTS: $points"
 
             Log.d("!!!", "Det är större")
-
 
         } else (Log.d("!!!", "Du är mindre förlorat"))
 

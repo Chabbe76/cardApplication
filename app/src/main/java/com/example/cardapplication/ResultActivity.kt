@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Button
 import android.widget.ImageButton
+import android.widget.TextView
 
 class ResultActivity : AppCompatActivity() {
     lateinit var startActivityButton: ImageButton
@@ -25,15 +26,22 @@ class ResultActivity : AppCompatActivity() {
         startActivityButton.setOnClickListener {
             val intent =
                 Intent(/* packageContext = */ this, /* cls = */ StartActivity::class.java)
-            startActivity(/* intent = */ intent)
+            startActivity(/* intent = */ intent)}
 
             mainActivityButton = findViewById<ImageButton>(R.id.imageButtonPlayAgain)
             mainActivityButton.setOnClickListener {
 
-                Log.d("!!!", "Calisiyor")
+                Log.d("!!!", "Funkar")
                 val intentPlayAgain =
                     Intent(/* packageContext = */ this, /* cls = */ MainActivity::class.java)
                 startActivity(/* intent = */ intentPlayAgain)
+
+                val showPoints = intent.getStringExtra("points")
+                val textView = findViewById<TextView>(R.id.resultTextView).apply {
+                    text = showPoints
+                }
+
+
 
             }
 
@@ -42,5 +50,5 @@ class ResultActivity : AppCompatActivity() {
 
     }
 
-}
+
 

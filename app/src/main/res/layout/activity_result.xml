@@ -4,19 +4,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".ResultActivity"
     android:background="@drawable/cardbackgrimage"
-    >
+    tools:context=".ResultActivity">
 
     <TextView
-        android:id="@+id/ResultTextView"
+        android:id="@+id/resultTextView"
         android:layout_width="211dp"
         android:layout_height="43dp"
         android:layout_marginTop="310dp"
         android:keyboardNavigationCluster="false"
-        android:text="Your Result:"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.415"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,7 +26,7 @@
         app:layout_constraintEnd_toStartOf="@+id/imageButtonPlayAgain"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/ResultTextView"
+        app:layout_constraintTop_toBottomOf="@+id/resultTextView"
         app:srcCompat="@android:drawable/presence_busy" />
 
     <ImageButton
@@ -39,7 +37,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toEndOf="@+id/imageButtonClose"
-        app:layout_constraintTop_toBottomOf="@+id/ResultTextView"
+        app:layout_constraintTop_toBottomOf="@+id/resultTextView"
         app:srcCompat="@android:drawable/presence_online" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
